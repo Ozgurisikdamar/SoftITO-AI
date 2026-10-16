@@ -2,35 +2,44 @@
 
 > **SoftITo · Data Engineering**
 
-ETL (Extract, Transform, Load) veriyi hedef sisteme yüklemeden önce dönüştürür. ELT (Extract, Load, Transform) ise ham veriyi hedef platforma yükler ve dönüşümü hedef sistemde gerçekleştirir.
+ETL (Extract, Transform, Load) veriyi hedefe yüklemeden önce dönüştürür. ELT (Extract, Load, Transform) ise ham veriyi hedef platforma yükler ve dönüşümü orada gerçekleştirir.
 
-## Ne zaman hangisi?
+## Katmanlı veri mimarisi
 
-| Konu | ETL | ELT |
-|---|---|---|
-| Dönüşüm nerede? | Kaynak/ara katman | Hedef veri platformu |
-| Yaygın kullanım | Kontrollü entegrasyon, maskeleme, sınırlı hedefler | Cloud warehouse/lakehouse ve ölçeklenebilir analitik |
-| Ham verinin korunması | Tasarıma bağlı | Genellikle raw katmanda korunur |
-| Önemli risk | Ara katmanda darboğaz | Ham katmanda kalite ve erişim kontrolü |
-
-## Önerilen katmanlar
-
-- **Bronze / Raw:** kaynağa yakın, izlenebilir ham veri.
-- **Silver / Clean:** tip, şema, kalite, deduplication ve standardizasyon.
+- **Bronze / Raw:** kaynağa yakın ham veri; kaynak bilgisi ve yükleme zamanı korunur.
+- **Silver / Clean:** tip dönüşümü, standardizasyon, kalite kontrolleri ve deduplication.
 - **Gold / Serving:** raporlama ve ürün ihtiyaçlarına göre modellenmiş veri.
 
-## Uygulama örnekleri
+## Örnekler
 
-- [Python ETL pipeline](python_etl.py): CSV oku, doğrula, normalize et ve temiz veriyi yaz.
-- [SQL ELT örneği](sql_elt.sql): ham tablodan analitik tablo üret.
+- [Python ETL](python_etl.py): CSV okur, alanları normalize eder, doğrular ve hatalı kayıtları ayrı dosyaya yazar.
+- [PostgreSQL ELT](sql_elt.sql): raw tablodan analitik tabloya idempotent upsert.
+- [Örnek müşteri verisi](../data/etl/customers.csv)
+
+## Python ETL çalıştırma
+
+Repository kök dizininden:
+
+```bash
+python "ETL-ELT/python_etl.py" data/etl/customers.csv data/processed/customers.csv data/processed/rejects.csv
+```
+
+## Testler
+
+```bash
+python -m pip install -r requirements.txt
+pytest -q
+```
 
 ## Üretim kontrol listesi
 
 - Şema ve veri sözleşmeleri
 - Null, duplicate, aralık ve referans bütünlüğü kontrolleri
-- Hata kayıtlarının karantinaya alınması
+- Hatalı kayıtların karantinaya alınması
 - Idempotency ve yeniden çalıştırma stratejisi
 - Incremental load / watermark veya CDC
 - Log, metrik, alarm ve lineage
 - PII sınıflandırması, erişim kontrolü ve saklama politikası
 - Kaynak-hedef satır sayısı ve kontrol toplamları
+
+> SQL örneği PostgreSQL içindir ve `raw_events` tablosunun önceden oluşturulmuş olduğunu varsayar.
