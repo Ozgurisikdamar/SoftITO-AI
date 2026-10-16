@@ -1,19 +1,23 @@
 # GRU — Temelden Uygulamaya
 
-Bu çalışma, Gated Recurrent Unit (GRU) mimarisini iki kapısı ve tek gizli durum yaklaşımı üzerinden açıklar; PyTorch ve Keras örneklerini içerir.
+> **SoftITo · İleri Seviye Yapay Zekâ Mühendisliği**
+
+Gated Recurrent Unit (GRU), reset ve update kapılarıyla geçmiş bilgiyi ve yeni girdiyi dengeleyen, LSTM'e göre daha sade bir tekrarlayan sinir ağı mimarisidir.
 
 ## İçerik
-- Sıfırlama ve güncelleme kapıları
-- Küçük bir sayısal NumPy örneği
-- Gürültülü sinüs dalgası verisi ve kayan pencere yaklaşımı
-- PyTorch ile elle GRU hücresi ve `nn.GRU`
-- Keras `layers.GRU`, eğitim ve test
-- RNN, LSTM ve GRU karşılaştırması
+- Reset (`r_t`) ve update (`z_t`) kapıları
+- NumPy ile küçük sayısal örnek
+- Gürültülü sinüs zaman serisi ve kayan pencere yaklaşımı
+- PyTorch: elle yazılmış hücre ve `nn.GRU`
+- Keras: `layers.GRU`
+- Eğitim, test ve RNN/LSTM/GRU karşılaştırması
 
-## Görev
-Son 20 zaman adımından sonraki sinüs dalgası değerini tahmin etmek.
+## Uygulama görevi
+Önceki **20 zaman adımını** kullanarak bir sonraki sinüs dalgası değerini tahmin etmek.
 
 ## Çalıştırma
-Notebook'u Google Colab veya Jupyter Notebook ile açın. Gerekli paketler: NumPy, Matplotlib, PyTorch ve TensorFlow/Keras.
+`gru_pytorch_keras.ipynb` dosyasını Google Colab veya Jupyter Notebook ile açın. Gerekli paketler: NumPy, Matplotlib, PyTorch ve TensorFlow/Keras.
 
-> Başlangıçta sağlanan GRU dosyası Python betiği biçimindeydi. Notebook sürümünde kaynak kod tek hücrede korunmuştur; adım adım kullanım için kod hücrelere ayrılabilir.
+---
+
+[← SoftITo-AI ana deposu](../README.md) · [RNN](../RNN/) · [LSTM](../LSTM/)
