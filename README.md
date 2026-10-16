@@ -1,6 +1,8 @@
 <div align="center">
 
-# SoftITo AI Lab
+![SoftITO — Yazılım, Veri ve Yapay Zekâ](assets/softito-banner.svg)
+
+# SoftITO | Yazılım, Veri ve Yapay Zekâ
 
 ### From Data Foundations to Applied Artificial Intelligence
 
@@ -21,7 +23,7 @@
 
 ## Proje hakkında
 
-**SoftITo AI Lab**, SoftITo eğitim sürecinde ele alınan yazılım, veri ve yapay zekâ konularını düzenli, erişilebilir ve uygulama odaklı bir çalışma alanında bir araya getirir.
+**SoftITO**, yazılım, veri ve yapay zekâ konularını düzenli, erişilebilir ve uygulama odaklı bir çalışma alanında bir araya getirir.
 
 Amaç yalnızca konu notları biriktirmek değil; kavramları kodla keşfetmek, farklı yöntemleri karşılaştırmak ve veri odaklı problemlere uçtan uca yaklaşmayı öğrenmektir. İçerikler konu klasörlerine ayrılmıştır; her alanın README dosyası ilgili çalışma ve gereksinimlere giriş noktasıdır.
 
@@ -199,7 +201,7 @@ Bu repository, eğitim sırasında geliştirilen notebook'lar ve örnek kodlar i
 
 <div align="center">
 
-**SoftITo AI Lab**  
+**SoftITO**  
 *Build foundations. Explore data. Engineer intelligence.*
 
 </div>
