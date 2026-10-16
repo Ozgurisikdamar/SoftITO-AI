@@ -1,0 +1,5 @@
+# Core utilities and tests
+pytest>=8.0,<9.0
+scikit-learn>=1.4,<2.0
+# PySpark is optional for the Spark examples:
+pyspark>=3.5,<4.0
