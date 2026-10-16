@@ -1,41 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500">
+<svg xmlns="http://www.w3.org/2000/svg" width="2100" height="700" viewBox="0 0 2100 700">
 <defs>
- <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07172c"/><stop offset=".55" stop-color="#0a2544"/><stop offset="1" stop-color="#073e5a"/></linearGradient>
- <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#56e0e8"/><stop offset="1" stop-color="#2296d2"/></linearGradient>
- <linearGradient id="panel" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#0b1c31" stop-opacity=".97"/><stop offset="1" stop-color="#0b1c31" stop-opacity=".1"/></linearGradient>
- <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#80d8ed" stroke-opacity=".08" stroke-width="1"/></pattern>
- <filter id="glow"><feGaussianBlur stdDeviation="8"/></filter>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081a30"/><stop offset=".58" stop-color="#0b2b4a"/><stop offset="1" stop-color="#06172b"/></linearGradient>
+ <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#57e6e8"/><stop offset="1" stop-color="#22a9df"/></linearGradient>
+ <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#3c91bb" stroke-opacity=".13" stroke-width="1.4"/></pattern>
+ <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#081a30" stop-opacity=".98"/><stop offset=".62" stop-color="#081a30" stop-opacity=".18"/></linearGradient>
+ <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#25bddd" stop-opacity=".2"/><stop offset="1" stop-color="#061528" stop-opacity="0"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
 </defs>
-<rect width="1600" height="500" fill="url(#bg)"/><rect width="1600" height="500" fill="url(#grid)"/>
-<circle cx="1230" cy="215" r="170" fill="#12b9da" opacity=".1" filter="url(#glow)"/>
-<path d="M0 390 Q300 345 520 395 T980 380 T1600 360 V500 H0Z" fill="#061426" opacity=".65"/>
-<!-- Istanbul-inspired skyline -->
-<g fill="#102e4b" stroke="#3bb8d5" stroke-opacity=".45" stroke-width="2">
- <path d="M760 390V300h36v90 M804 390V270h28v120 M842 390V320h42v70 M891 390V286h24v104 M927 390V305h38v85 M972 390V250h32v140 M1012 390V290h44v100 M1064 390V315h30v75 M1102 390V260h26v130 M1136 390V300h48v90 M1191 390V280h28v110 M1227 390V318h42v72 M1277 390V275h35v115 M1320 390V302h26v88 M1355 390V250h36v140 M1398 390V310h42v80 M1448 390V285h27v105 M1483 390V320h42v70 M1533 390V292h30v98"/>
- <path d="M700 390V348h20v42 M724 390V332h20v58"/>
+<rect width="2100" height="700" fill="url(#bg)"/><rect width="2100" height="700" fill="url(#grid)"/>
+<ellipse cx="1630" cy="260" rx="280" ry="220" fill="#1399d5" opacity=".12" filter="url(#glow)"/>
+<rect width="1200" height="700" fill="url(#fade)"/>
+<!-- analytics graph -->
+<g fill="none" stroke="#54e5f1" stroke-width="2.5" opacity=".9"><path d="M1438 135L1550 184L1664 122L1778 184L1890 132"/><circle cx="1438" cy="135" r="9" fill="#0b2a48"/><circle cx="1550" cy="184" r="9" fill="#0b2a48"/><circle cx="1664" cy="122" r="9" fill="#0b2a48"/><circle cx="1778" cy="184" r="9" fill="#0b2a48"/><circle cx="1890" cy="132" r="9" fill="#0b2a48"/></g>
+<g fill="#0b2b49" stroke="#55dce9" stroke-width="2.5"><rect x="1518" y="224" width="82" height="54" rx="9"/><rect x="1630" y="204" width="82" height="54" rx="9"/><rect x="1742" y="224" width="82" height="54" rx="9"/></g>
+<g stroke="#55dce9" stroke-width="2.5" stroke-linecap="round"><path d="M1538 244h42m-42 11h34m-34 11h39M1650 224h42m-42 11h34m-34 11h39M1762 244h42m-42 11h34m-34 11h39"/></g>
+<!-- skyline -->
+<g fill="#0a2540" stroke="#168db7" stroke-width="2" stroke-opacity=".85">
+<path d="M940 520V465h20v55 M964 520V447h22v73 M994 520V422h26v98 M1030 520V390h29v130 M1070 520V445h42v75 M1117 520V411h28v109 M1154 520V433h39v87 M1202 520V352h39v168 M1248 520V416h43v104 M1298 520V439h29v81 M1336 520V375h27v145 M1372 520V417h46v103 M1427 520V448h25v72 M1460 520V405h39v115 M1507 520V438h28v82 M1544 520V401h41v119 M1593 520V445h27v75 M1628 520V417h43v103 M1678 520V449h28v71 M1714 520V389h33v131 M1756 520V433h43v87 M1807 520V412h28v108 M1842 520V439h39v81 M1888 520V391h34v129 M1930 520V437h31v83 M1968 520V421h42v99"/>
 </g>
-<!-- bridge cables -->
-<g fill="none" stroke="#52d8e8" stroke-width="2" stroke-opacity=".7">
- <path d="M1040 372V238 M1370 372V238 M1010 270H1400 M1040 238Q1205 390 1370 238"/>
- <path d="M1040 238L1070 270 M1040 238L1100 270 M1040 238L1130 270 M1040 238L1160 270 M1040 238L1190 270 M1040 238L1220 270 M1040 238L1250 270 M1040 238L1280 270 M1040 238L1310 270 M1040 238L1340 270 M1370 238L1340 270 M1370 238L1310 270 M1370 238L1280 270 M1370 238L1250 270 M1370 238L1220 270 M1370 238L1190 270 M1370 238L1160 270 M1370 238L1130 270 M1370 238L1100 270 M1370 238L1070 270"/>
+<!-- suspension bridge -->
+<g fill="none" stroke="#3dd6ec" stroke-width="2.5" stroke-opacity=".88">
+<path d="M1310 522V330 M1740 522V330 M1280 388H1770 M1310 330Q1525 600 1740 330"/>
+<path d="M1310 330L1340 388 M1310 330L1380 388 M1310 330L1420 388 M1310 330L1460 388 M1310 330L1500 388 M1310 330L1540 388 M1310 330L1580 388 M1310 330L1620 388 M1310 330L1660 388 M1310 330L1700 388 M1740 330L1700 388 M1740 330L1660 388 M1740 330L1620 388 M1740 330L1580 388 M1740 330L1540 388 M1740 330L1500 388 M1740 330L1460 388 M1740 330L1420 388 M1740 330L1380 388 M1740 330L1340 388"/>
 </g>
-<!-- floating data nodes -->
-<g stroke="#4edce6" stroke-width="2" fill="#0a3550">
- <path d="M1140 88L1230 126L1320 78L1415 126L1505 84" fill="none" stroke-opacity=".65"/>
- <circle cx="1140" cy="88" r="7"/><circle cx="1230" cy="126" r="7"/><circle cx="1320" cy="78" r="7"/><circle cx="1415" cy="126" r="7"/><circle cx="1505" cy="84" r="7"/>
- <rect x="1204" y="160" width="62" height="44" rx="8"/><rect x="1290" y="145" width="62" height="44" rx="8"/><rect x="1376" y="160" width="62" height="44" rx="8"/>
- <path d="M1218 184h34m-34-9h24m-24 18h28 M1304 169h34m-34 9h26m-26 9h32 M1390 175h34m-34 9h26" fill="none"/>
+<!-- Istanbul silhouettes -->
+<g fill="#071b31" stroke="#1a6386" stroke-width="2">
+<path d="M1815 520V440L1830 421L1845 440V520Z M1824 421L1830 386L1836 421Z M1856 520V453H1872V520 M1885 520V448H1900V520"/>
+<path d="M1928 520V383L1954 345L1980 383V520Z M1945 345L1954 300L1963 345Z M1940 394h28 M1940 412h28 M1940 430h28"/>
+<path d="M2000 520V430H2020V520 M2032 520V408H2050V520"/>
 </g>
-<rect x="0" y="0" width="950" height="500" fill="url(#panel)"/>
-<path d="M70 65h68" stroke="url(#cyan)" stroke-width="5" stroke-linecap="round"/>
-<text x="70" y="145" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800" letter-spacing="-2" fill="#f4fbff">Soft<tspan fill="#55dce5">I</tspan><tspan fill="#f4fbff">T</tspan><tspan fill="#55dce5">O</tspan></text>
-<text x="73" y="190" font-family="Arial, Helvetica, sans-serif" font-size="20" letter-spacing="4" font-weight="600" fill="#a5d8e9">YAZILIM · VERİ · YAPAY ZEKÂ</text>
-<text x="72" y="270" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#ffffff">From Data Foundations</text>
-<text x="72" y="318" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#ffffff">to Applied Intelligence</text>
-<text x="74" y="366" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#a9c7d9">Python  /  Machine Learning  /  Deep Learning  /  Data Engineering</text>
-<g font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">
- <rect x="72" y="414" width="164" height="36" rx="18" fill="#123f5d" stroke="#38c7dd" stroke-opacity=".8"/><text x="154" y="437" text-anchor="middle" fill="#b9f6fa">AI ENGINEERING</text>
- <rect x="248" y="414" width="174" height="36" rx="18" fill="#123f5d" stroke="#38c7dd" stroke-opacity=".8"/><text x="335" y="437" text-anchor="middle" fill="#b9f6fa">MACHINE LEARNING</text>
- <rect x="434" y="414" width="170" height="36" rx="18" fill="#123f5d" stroke="#38c7dd" stroke-opacity=".8"/><text x="519" y="437" text-anchor="middle" fill="#b9f6fa">DATA ENGINEERING</text>
-</g>
-</svg>
+<path d="M0 540Q250 505 490 544T930 533T1350 540T1700 535T2100 520V700H0Z" fill="#06172b" opacity=".72"/>
+<rect x="900" y="520" width="1200" height="120" fill="url(#water)"/>
+<g stroke="#32b9d9" stroke-opacity=".25"><path d="M1250 550h780M1320 565h710M1410 580h620M1510 596h520M1620 612h410"/></g>
+<!-- brand and text -->
+<text x="108" y="185" font-family="Arial, Helvetica, sans-serif" font-size="91" font-weight="800" letter-spacing="-3" fill="#f4f7fb">Soft<tspan fill="#65dfe8">I</tspan><tspan fill="#f4f7fb">T</tspan><tspan fill="url(#cyan)">O</tspan></text>
+<text x="110" y="239" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="5" fill="#7dd9f3">Y A Z I L I M  ·  V E R İ  ·  Y A P A Y  Z E K Â</text>
+<text x="108" y="347" font-family="Arial, Helvetica, sans-serif" font-size="59" font-weight="700" fill="#f6f8fb">From Data Foundations</text>
+<text x="108" y="420" font-family="Arial, Helvetica, sans-serif" font-size="59" font-weight="700" fill="#f6f8fb">to Applied Intelligence</text>
+<text x="110" y="480" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#b5d6e9">Python / Machine Learning / Deep Learning / Data Engineering</text>
+<g font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#a9f1fa" text-anchor="middle">
+<rect x="108" y="550" width="250" height="62" rx="31" fill="#0b3a58" fill-opacity=".82" stroke="#27c9e7" stroke-width="2"/><text x="233" y="588">AI ENGINEERING</text>
+<rect x="378" y="550" width="285" height="62" rx="31" fill="#0b3a58" fill-opacity=".82" stroke="#27c9e7" stroke-width="2"/><text x="520" y="588">MACHINE LEARNING</text>
+<rect x="683" y="550" width="274" height="62" rx="31" fill="#0b3a58" fill-opacity=".82" stroke="#27c9e7" stroke-width="2"/><text x="820" y="588">DATA ENGINEERING</text>
+</g></svg>
