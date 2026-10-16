@@ -1,0 +1,3 @@
+Hadoop makes distributed storage possible.
+Spark supports distributed data processing.
+Hadoop and Spark are common big data tools.
