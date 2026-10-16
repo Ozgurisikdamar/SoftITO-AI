@@ -1,16 +1,23 @@
 # RNN — Temelden Uygulamaya
 
-Bu çalışma, tekrarlayan sinir ağlarının (RNN) temel mantığını ve zaman serisi tahmininde kullanımını açıklar.
+> **SoftITo · İleri Seviye Yapay Zekâ Mühendisliği**
+
+Tekrarlayan sinir ağlarının (Recurrent Neural Network — RNN) temelini ve zaman serisi tahmininde kullanımını uygulamalı olarak inceleyen eğitim çalışması.
 
 ## İçerik
-- RNN hücresinin matematiği ve küçük NumPy örneği
-- Gürültülü sinüs dalgası için kayan pencere veri hazırlama
-- PyTorch ile elle yazılmış ve `nn.RNN` tabanlı modeller
-- Keras `SimpleRNN` modeli
-- Eğitim, test ve tahmin karşılaştırmaları
+- RNN hücresinin matematiksel mantığı
+- NumPy ile küçük sayısal örnek
+- Gürültülü sinüs dalgası verisinin hazırlanması
+- PyTorch: manuel hücre ve `nn.RNN`
+- Keras: `SimpleRNN`
+- Eğitim, test ve tahmin görselleştirmeleri
 
-## Görev
-Son 20 zaman adımından sonraki sinüs dalgası değerini tahmin etmek.
+## Uygulama görevi
+Son **20 zaman adımını** kullanarak bir sonraki sinüs dalgası değerini tahmin etmek.
 
 ## Çalıştırma
-Notebook'u Google Colab veya Jupyter Notebook ile açın. Gerekli paketler: NumPy, Matplotlib, PyTorch ve TensorFlow/Keras.
+`rnn_pytorch_keras.ipynb` dosyasını Google Colab veya Jupyter Notebook ile açın. Notebook, NumPy, Matplotlib, PyTorch ve TensorFlow/Keras kullanır.
+
+---
+
+[← SoftITo-AI ana deposu](../README.md) · [LSTM](../LSTM/) · [GRU](../GRU/)
