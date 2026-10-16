@@ -33,7 +33,7 @@
 <rect x="900" y="520" width="1200" height="120" fill="url(#water)"/>
 <g stroke="#32b9d9" stroke-opacity=".25"><path d="M1250 550h780M1320 565h710M1410 580h620M1510 596h520M1620 612h410"/></g>
 <!-- brand and text -->
-<text x="108" y="185" font-family="Arial, Helvetica, sans-serif" font-size="91" font-weight="800" letter-spacing="-3" fill="#f4f7fb">Soft<tspan fill="#65dfe8">I</tspan><tspan fill="#f4f7fb">T</tspan><tspan fill="url(#cyan)">O</tspan></text>
+<text x="108" y="185" font-family="Arial, Helvetica, sans-serif" font-size="91" font-weight="800" letter-spacing="-3" fill="#f4f7fb">Soft<tspan fill="#65dfe8">I</tspan><tspan fill="#65dfe8">T</tspan><tspan fill="url(#cyan)">O</tspan></text>
 <text x="110" y="239" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="5" fill="#7dd9f3">Y A Z I L I M  ·  V E R İ  ·  Y A P A Y  Z E K Â</text>
 <text x="108" y="347" font-family="Arial, Helvetica, sans-serif" font-size="59" font-weight="700" fill="#f6f8fb">From Data Foundations</text>
 <text x="108" y="420" font-family="Arial, Helvetica, sans-serif" font-size="59" font-weight="700" fill="#f6f8fb">to Applied Intelligence</text>
