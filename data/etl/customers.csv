@@ -1,0 +1,7 @@
+customer_id,email,country,amount
+C001,ALICE@example.com,tr,125.50
+C002,bob@example.com,us,42
+C003,invalid-email,tr,18
+,missing-id@example.com,de,20
+C004,carol@example.com,uk,0
+C005,dave@example.com,tr,-5
