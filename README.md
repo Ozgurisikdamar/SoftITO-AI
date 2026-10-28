@@ -8,7 +8,7 @@
 
 **Python · Data Analytics · Machine Learning · Deep Learning · Data Engineering**
 
-[Öğrenme Alanları](#-öğrenme-alanları) · [Hızlı Başlangıç](#-hızlı-başlangıç) · [Öğrenme Rotaları](#-öğrenme-rotaları) · [Katkı ve Kullanım](#-kullanım-notları)
+[Öğrenme Alanları](#-öğrenme-alanları) · [Hızlı Başlangıç](#-hızlı-başlangıç) · [Öğrenme Rotaları](#-öğrenme-rotaları) · [Yol Haritası](ROADMAP.md) · [Katkı ve Kullanım](#-kullanım-notları)
 
 <br/>
 
@@ -110,6 +110,12 @@ Metin ve sıralı veri problemlerini temel temsillerden sinir ağı mimarilerine
 **SQL → ETL / ELT → Big Data → Spark**
 
 Veriyi güvenilir şekilde al, doğrula, dönüştür, katmanlara ayır ve analitik kullanıma hazırla.
+
+### 05 — AI Engineering rotası
+**ML → NLP → ETL / ELT → Vector DB → RAG → Agents → Fine-Tuning → Deployment**
+
+LLM tabanlı sistemleri kur, ölç ve yayına al: vektör arama, RAG, ajan orkestrasyonu, LoRA/QLoRA ile model özelleştirme, bilgisayarlı görü ve vLLM ile ölçeklenebilir inference.
+Modül modül plan, kaynaklar ve 16 haftalık takvim için **[ROADMAP.md](ROADMAP.md)**.
 
 ## ⚡ Hızlı başlangıç
 
