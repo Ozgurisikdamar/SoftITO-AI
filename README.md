@@ -86,6 +86,16 @@ Amaç yalnızca konu notları biriktirmek değil; kavramları kodla keşfetmek, 
 <td>Sıralı veriler, tekrarlayan ağlar ve zaman serisi tahminine yönelik örnekler.</td>
 <td><a href="RNN/README.md">RNN</a> · <a href="LSTM/README.md">LSTM</a> · <a href="GRU/README.md">GRU</a></td>
 </tr>
+<tr>
+<td><strong>RAG</strong></td>
+<td>Doküman ingestion, chunking, BM25 ve dense retrieval, FAISS, RRF, reranking, MMR, HyDE, memory ve retrieval değerlendirmesi.</td>
+<td><a href="RAG/README.md">RAG laboratuvarı →</a></td>
+</tr>
+<tr>
+<td><strong>Fine-Tuning</strong></td>
+<td>LLM instruction tuning, SFT, PEFT, LoRA/QLoRA, chat template, adapter eğitimi ve inference.</td>
+<td><a href="Fine-Tuning/README.md">Fine-Tuning laboratuvarı →</a></td>
+</tr>
 </tbody>
 </table>
 
@@ -111,11 +121,17 @@ Metin ve sıralı veri problemlerini temel temsillerden sinir ağı mimarilerine
 
 Veriyi güvenilir şekilde al, doğrula, dönüştür, katmanlara ayır ve analitik kullanıma hazırla.
 
-### 05 — AI Engineering rotası
-**ML → NLP → ETL / ELT → Vector DB → RAG → Agents → Fine-Tuning → Deployment**
+### 05 — AI Engineering / LLM Engineering rotası
+**Python → ML temelleri → NLP → Deep Learning → LLM temelleri → RAG → Fine-Tuning → Evaluation → Deployment**
 
-LLM tabanlı sistemleri kur, ölç ve yayına al: vektör arama, RAG, ajan orkestrasyonu, LoRA/QLoRA ile model özelleştirme, bilgisayarlı görü ve vLLM ile ölçeklenebilir inference.
-Modül modül plan, kaynaklar ve 16 haftalık takvim için **[ROADMAP.md](ROADMAP.md)**.
+- **NLP:** metin işleme, tokenization ve klasik metin modelleri.
+- **LLM / RAG:** retrieval pipeline, chunking, sparse+dense arama, hybrid retrieval, reranking, prompt/context engineering ve kaynaklı cevap üretimi.
+- **Fine-Tuning:** instruction dataset hazırlama, SFT, LoRA/QLoRA, adapter eğitimi ve inference.
+- **Production'a hazırlık:** değerlendirme, hata analizi, maliyet/latency optimizasyonu ve deployment konularını sonraki aşamada ele al.
+
+RAG ve Fine-Tuning birbirinin alternatifi değildir: RAG modele dış bilgi bağlar; fine-tuning ise modelin davranışını veya görev performansını örneklerle uyarlamayı hedefler. İhtiyaca göre ayrı ayrı veya birlikte kullanılabilir.
+
+Modül modül plan, kaynaklar ve takvim için **[ROADMAP.md](ROADMAP.md)**.
 
 ## ⚡ Hızlı başlangıç
 
@@ -179,7 +195,9 @@ SoftITo-AI/
 ├── ETL-ELT/      # Veri entegrasyonu ve dönüşüm
 ├── RNN/          # Recurrent Neural Networks
 ├── LSTM/         # Long Short-Term Memory
-└── GRU/          # Gated Recurrent Unit
+├── GRU/          # Gated Recurrent Unit
+├── RAG/          # Retrieval-Augmented Generation
+└── Fine-Tuning/  # LLM SFT, LoRA / QLoRA
 ```
 
 ## 🧪 Uygulama ve mühendislik yaklaşımı
