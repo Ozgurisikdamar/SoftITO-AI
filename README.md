@@ -92,6 +92,11 @@ Amaç yalnızca konu notları biriktirmek değil; kavramları kodla keşfetmek, 
 <td><a href="RAG/README.md">RAG laboratuvarı →</a></td>
 </tr>
 <tr>
+<td><strong>Knowledge Distillation</strong></td>
+<td>Teacher–student öğrenmesi, soft targets, temperature scaling, KL divergence + Cross-Entropy loss ve Qwen2.5 LLM damıtma deneyi.</td>
+<td><a href="Knowledge%20Distilation/README.md">Knowledge Distillation →</a></td>
+</tr>
+<tr>
 <td><strong>Fine-Tuning</strong></td>
 <td>LLM instruction tuning, SFT, PEFT, LoRA/QLoRA, chat template, adapter eğitimi ve inference.</td>
 <td><a href="Fine-Tuning/README.md">Fine-Tuning laboratuvarı →</a></td>
@@ -122,7 +127,7 @@ Metin ve sıralı veri problemlerini temel temsillerden sinir ağı mimarilerine
 Veriyi güvenilir şekilde al, doğrula, dönüştür, katmanlara ayır ve analitik kullanıma hazırla.
 
 ### 05 — AI Engineering / LLM Engineering rotası
-**Python → ML temelleri → NLP → Deep Learning → LLM temelleri → RAG → Fine-Tuning → Evaluation → Deployment**
+**Python → ML temelleri → NLP → Deep Learning → LLM temelleri → RAG → Fine-Tuning → Knowledge Distillation → Evaluation → Deployment**
 
 - **NLP:** metin işleme, tokenization ve klasik metin modelleri.
 - **LLM / RAG:** retrieval pipeline, chunking, sparse+dense arama, hybrid retrieval, reranking, prompt/context engineering ve kaynaklı cevap üretimi.
