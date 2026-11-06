@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LangChain — Detaylı Rehber</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E1015; --surface:#161922; --surface-2:#1D212C; --line:#2A2F3D;
+    --text:#E7E9EE; --muted:#8890A0;
+    --lc:#4FBFAE;        /* LangChain — teal, zincir/bağlantı teması */
+    --lc-dim:#12302c40;
+    --lg:#C97B5C;        /* LangGraph — bakır, motor/runtime teması */
+    --lg-dim:#2c1f1740;
+    --host:#5FA8D3; --server:#B98BD6; --server-dim:#2c223616;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; line-height:1.6;
+    background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:48px 48px; background-attachment:fixed; background-position:-1px -1px;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}}
+  h1,h2,h3{font-family:'Space Grotesk', sans-serif; letter-spacing:-0.01em;}
+  code,.mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+
+  .topbar{position:sticky; top:0; z-index:50; background:rgba(14,16,21,.88); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .topbar-inner{max-width:920px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:space-between;}
+  .brand{font-family:'Space Grotesk'; font-weight:600; font-size:15px; display:flex; align-items:center; gap:8px;}
+  .brand .dot{width:8px;height:8px;border-radius:50%; background:var(--lc); box-shadow:0 0 0 3px var(--lc-dim);}
+  .topnav{display:flex; gap:22px; font-size:13px; color:var(--muted);}
+  .topnav a{color:var(--muted); text-decoration:none;}
+  .topnav a:hover{color:var(--text);}
+
+  .hero{padding:80px 0 40px;}
+  .eyebrow{font-family:'IBM Plex Mono'; font-size:12px; color:var(--lc); text-transform:uppercase; letter-spacing:.14em; margin-bottom:18px; display:flex; align-items:center; gap:10px;}
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--lc);}
+  h1.title{font-size:44px; font-weight:700; line-height:1.12; max-width:740px;}
+  h1.title .hl{color:var(--lc);}
+  .lede{margin-top:20px; font-size:17px; color:var(--muted); max-width:620px;}
+
+  /* ---- chain diagram (signature element) ---- */
+  .chain{margin:56px 0 20px; border:1px solid var(--line); border-radius:10px; background:var(--surface); overflow:hidden;}
+  .chain-head{display:flex; justify-content:space-between; padding:14px 20px; border-bottom:1px solid var(--line); font-family:'IBM Plex Mono'; font-size:12px; color:var(--muted);}
+  .chain-row{display:flex; align-items:center; padding:34px 22px; overflow-x:auto; gap:0;}
+  .link{
+    flex:0 0 auto; min-width:120px; padding:14px 16px; border-radius:8px; border:1px solid var(--lc); background:var(--lc-dim);
+    font-family:'IBM Plex Mono'; font-size:12.5px; color:var(--lc); text-align:center;
+    opacity:0; transform:translateY(8px); animation:rise .5s ease forwards;
+  }
+  .link .t{display:block; font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;}
+  .connector{flex:0 0 32px; height:2px; background:linear-gradient(90deg, var(--line), var(--lc), var(--line)); position:relative; opacity:0; animation:rise .5s ease forwards;}
+  .link:nth-child(1){animation-delay:.05s} .connector:nth-child(2){animation-delay:.15s}
+  .link:nth-child(3){animation-delay:.2s} .connector:nth-child(4){animation-delay:.3s}
+  .link:nth-child(5){animation-delay:.35s} .connector:nth-child(6){animation-delay:.45s}
+  .link:nth-child(7){animation-delay:.5s}
+  @keyframes rise{to{opacity:1; transform:none;}}
+  .chain-caption{padding:0 22px 26px; font-family:'IBM Plex Mono'; font-size:12px; color:var(--muted);}
+
+  section{padding:56px 0; border-top:1px solid var(--line);}
+  .section-tag{font-family:'IBM Plex Mono'; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:10px;}
+  h2{font-size:26px; margin-bottom:14px;}
+  p.body-text{color:#C4C9D4; font-size:15px; max-width:680px; margin-bottom:14px;}
+  p.body-text .mono{color:var(--lc); font-size:13.5px;}
+
+  .step-list{display:flex; flex-direction:column; gap:0; margin-top:12px;}
+  .step-item{display:grid; grid-template-columns:52px 1fr; gap:18px; padding:20px 0; border-top:1px solid var(--line);}
+  .step-item:first-child{border-top:none;}
+  .step-item .num{font-family:'IBM Plex Mono'; font-size:13px; color:var(--lc);}
+  .step-item h3{font-size:16px; margin-bottom:6px; font-weight:600;}
+  .step-item p{color:var(--muted); font-size:14px;}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px;}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:9px; padding:20px;}
+  .card h4{font-family:'IBM Plex Mono'; font-size:12.5px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px;}
+  .card.a h4{color:var(--lc);} .card.b h4{color:var(--lg);}
+  .card ul{padding-left:18px; color:var(--muted); font-size:13.5px;}
+  .card li{margin-bottom:6px;}
+  .card li b{color:var(--text); font-weight:600;}
+
+  pre{background:#0B0D12; border:1px solid var(--line); border-radius:8px; padding:18px 20px; overflow-x:auto; margin:18px 0; font-size:13px; line-height:1.65;}
+  pre .c-key{color:#7FB0E0;} pre .c-str{color:#4FBFAE;} pre .c-com{color:#5C6373;} pre .c-fn{color:#C97B5C;}
+
+  table{width:100%; border-collapse:collapse; margin-top:22px; font-size:13.5px;}
+  th{text-align:left; font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); padding:10px 12px; border-bottom:1px solid var(--line);}
+  td{padding:12px 12px; border-bottom:1px solid var(--line); color:#C4C9D4; vertical-align:top;}
+  td.h{font-family:'IBM Plex Mono'; font-size:12.5px; color:var(--text); font-weight:600; white-space:nowrap;}
+  td .tag{display:inline-block; font-family:'IBM Plex Mono'; font-size:11px; padding:2px 8px; border-radius:5px;}
+  td .tag.lc{color:var(--lc); background:var(--lc-dim); border:1px solid #4fbfae40;}
+  td .tag.host{color:var(--host); background:#5fa8d31a; border:1px solid #5fa8d340;}
+  td .tag.server{color:var(--server); background:var(--server-dim); border:1px solid #b98bd640;}
+
+  .callout{margin-top:24px; padding:16px 18px; border-left:3px solid var(--lc); background:var(--lc-dim); border-radius:0 8px 8px 0; font-size:13.5px; color:#BFE5DC;}
+
+  footer{padding:40px 0 70px; border-top:1px solid var(--line); color:var(--muted); font-size:13px;}
+  footer a{color:var(--lc);}
+
+  @media (max-width:720px){
+    h1.title{font-size:32px;}
+    .grid2{grid-template-columns:1fr;}
+    table{display:block; overflow-x:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="dot"></span>LangChain</div>
+    <div class="topnav">
+      <a href="#nedir">Nedir</a>
+      <a href="#bilesenler">Bileşenler</a>
+      <a href="#langgraph">LangGraph</a>
+      <a href="#karsilastirma">Karşılaştırma</a>
+      <a href="#ornek">Kod örneği</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">LLM Orchestration Framework</div>
+    <h1 class="title">Model tek başına yetmez; <span class="hl">zincirlemek</span> gerekir.</h1>
+    <p class="lede">LangChain, büyük dil modellerini dış veri, araçlar ve çok adımlı iş akışlarıyla birleştirmek için Harrison Chase tarafından Ekim 2022'de başlatılan açık kaynaklı bir framework. Ekim 2025'te yayınlanan v1.0 ile birlikte sadeleşmiş bir çekirdek etrafında yeniden inşa edildi ve resmi ajan çalışma zamanı olarak LangGraph'ı benimsedi.</p>
+
+    <div class="chain">
+      <div class="chain-head"><span>bileşim (composition) hattı</span><span>LCEL</span></div>
+      <div class="chain-row">
+        <div class="link"><span class="t">Girdi</span>Prompt Template</div>
+        <div class="connector"></div>
+        <div class="link"><span class="t">Sağlayıcı</span>Model</div>
+        <div class="connector"></div>
+        <div class="link"><span class="t">Karar</span>Agent + Tools</div>
+        <div class="connector"></div>
+        <div class="link"><span class="t">Biçim</span>Output Parser</div>
+      </div>
+      <div class="chain-caption">her blok bağımsız değiştirilebilir — sağlayıcıyı, aracı ya da ayrıştırıcıyı değiştirmek zinciri bozmaz</div>
+    </div>
+  </section>
+
+  <section id="nedir">
+    <div class="section-tag">Tanım</div>
+    <h2>Ham modelle LangChain arasındaki fark</h2>
+    <p class="body-text">Bir LLM'i doğrudan çağırdığınızda tek bir istek-yanıt döngünüz olur: modelin önceki konuşmalarda hafızası yoktur, şirket verinize erişemez, dış API çağıramaz. LangChain bu boşluğu dolduran bağlayıcı katmandır — veritabanları, API'ler, dokümanlar, bellek ve birden çok ajanın birlikte çalışmasını sağlayan "tesisat".</p>
+    <p class="body-text">100'den fazla model sağlayıcısına (OpenAI, Anthropic, Google, Mistral, yerel modeller) <b style="color:var(--lc)">tek bir standart arayüz</b> sunar; bu sayede sağlayıcıyı değiştirmek, entegrasyon kodunu yeniden yazmak anlamına gelmez.</p>
+  </section>
+
+  <section id="bilesenler">
+    <div class="section-tag">Yapı taşları</div>
+    <h2>Dört katman</h2>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="num">01</div>
+        <div>
+          <h3>Models &amp; Integrations</h3>
+          <p>1000'den fazla entegrasyonla birleşik model arayüzü. Her sağlayıcı ayrı bir pakette yaşar: <span class="mono" style="color:var(--lc)">langchain-openai</span>, <span class="mono" style="color:var(--lc)">langchain-anthropic</span> gibi — çekirdek paket şişmez.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="num">02</div>
+        <div>
+          <h3>LCEL — bileşim dili</h3>
+          <p>Adımları birbirine bağlayan söz dizimi. Basit bir zincir tek adımdır (prompt → model); çok adımlı zincirler retrieval, dönüştürme ve ayrıştırma adımlarını art arda bağlar.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="num">03</div>
+        <div>
+          <h3>Agents &amp; Tools</h3>
+          <p>Modelin girdiye göre hangi eylemi (bir aracı mı çağıracağını, mı sonuçlandıracağını) seçtiği katman. <span class="mono" style="color:var(--lc)">create_agent</span> fonksiyonu, LangGraph'ın kalıcı çalışma zamanı üzerinde kanıtlanmış bir ReAct desenini hazır sunar.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="num">04</div>
+        <div>
+          <h3>Memory</h3>
+          <p>v1.0 öncesi in-process bellek sınıfları (<span class="mono" style="color:var(--lc)">ConversationBufferMemory</span> vb.) kullanımdan kaldırıldı. Üretimde bellek artık LangGraph'ın checkpointer'ı üzerinden, oturuma bağlı kalıcı durum olarak yönetiliyor.</p>
+        </div>
+      </div>
+    </div>
+    <div class="callout">
+      Middleware ile ajan davranışını çekirdek mantığı değiştirmeden genişletebilirsiniz: insan onayı ekleme, uzun konuşmaları sıkıştırma, hassas veriyi temizleme — hepsi birleştirilebilir hook'lar olarak.
+    </div>
+  </section>
+
+  <section id="langgraph">
+    <div class="section-tag">Runtime</div>
+    <h2>LangChain, LangGraph ve Deep Agents</h2>
+    <p class="body-text">LangChain yüksek seviyeli geliştirici arayüzüdür: zincirler, ajanlar, entegrasyonlar. LangGraph ise v1.0'dan beri bu ajanları arka planda çalıştıran durumlu (stateful) yürütme motorudur — döngüler, dallanmalar, kalıcılık ve insan-döngüde onay gerektiren senaryolar için ayrı bir framework olarak da kullanılabilir.</p>
+    <div class="grid2">
+      <div class="card a">
+        <h4>LangChain</h4>
+        <ul>
+          <li><b>Ne zaman:</b> Kullanım durumunuza kolayca uyarlanabilen, yüksek düzeyde özelleştirilebilir bir harness istiyorsanız.</li>
+          <li><b>Sağladığı:</b> Model + araçlar + prompt + middleware'den oluşan hazır bir çerçeve.</li>
+        </ul>
+      </div>
+      <div class="card b">
+        <h4>LangGraph</h4>
+        <ul>
+          <li><b>Ne zaman:</b> Akışınız, durum makinesini açıkça tasarlamak isteyecek kadar karmaşıksa.</li>
+          <li><b>Sağladığı:</b> Kalıcılık, rewind, checkpointing ve tam kontrol sunan düşük seviyeli orkestrasyon.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="body-text" style="margin-top:18px">Üçüncüsü <b style="color:var(--lc)">Deep Agents</b>: otomatik bağlam sıkıştırma, sanal dosya sistemi ve alt-ajan (subagent) oluşturma gibi "pil dahil" özelliklerle gelen, LangChain ajanları üzerine inşa edilmiş bir üst katman. Gözlemlenebilirlik tarafında ise <b style="color:var(--lc)">LangSmith</b> devreye girer — izleme, değerlendirme ve dağıtım için tek bir ortam değişkeniyle entegre olan platform.</p>
+  </section>
+
+  <section id="karsilastirma">
+    <div class="section-tag">Ekosistemdeki yeri</div>
+    <h2>LangChain, tool calling ve MCP ile nasıl ilişkili</h2>
+    <p class="body-text">Bu üçü farklı katmanlarda çalışır ve birbirini dışlamaz: tool calling modelin bir fonksiyonu nasıl çağırdığının temel mekanizması, MCP bu fonksiyonların nasıl standart şekilde keşfedilip paylaşılacağının protokolü, LangChain ise bunların hepsini bir uygulama içinde birleştiren orkestrasyon katmanıdır. Bir LangChain ajanı, araç olarak hem kendi tanımladığınız fonksiyonları hem de bir MCP sunucusundan gelen araçları kullanabilir.</p>
+    <table>
+      <tr><th>Katman</th><th>Sorduğu soru</th><th>Karşılık</th></tr>
+      <tr>
+        <td class="h">Tool calling</td>
+        <td>Model bir fonksiyonu nasıl çağırır ve sonucu nasıl geri alır?</td>
+        <td><span class="tag host">Mekanizma</span></td>
+      </tr>
+      <tr>
+        <td class="h">MCP</td>
+        <td>Bu fonksiyonlar nereden gelir, nasıl keşfedilir, nasıl paylaşılır?</td>
+        <td><span class="tag server">Protokol</span></td>
+      </tr>
+      <tr>
+        <td class="h">LangChain</td>
+        <td>Model, araçlar, bellek ve çok adımlı mantık bir uygulamada nasıl bir araya gelir?</td>
+        <td><span class="tag lc">Orkestrasyon</span></td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="ornek">
+    <div class="section-tag">Uygulama</div>
+    <h2>Minimal bir ajan örneği</h2>
+    <p class="body-text"><span class="mono">create_agent</span>, model, araçlar ve isteğe bağlı middleware'den oluşan bir ajanı birkaç satırda kurar; sağlayıcı çoğu zaman model adından otomatik çıkarılır.</p>
+    <pre><code><span class="c-key">from</span> langchain.agents <span class="c-key">import</span> create_agent
+
+<span class="c-key">def</span> <span class="c-fn">get_weather</span>(city: str) -> str:
+    <span class="c-com">"""Belirtilen şehir için hava durumunu döner."""</span>
+    ...
+
+agent = create_agent(
+    <span class="c-str">"claude-sonnet-5"</span>,
+    tools=[get_weather],
+)
+
+result = agent.invoke({
+    <span class="c-str">"messages"</span>: [{<span class="c-str">"role"</span>: <span class="c-str">"user"</span>, <span class="c-str">"content"</span>: <span class="c-str">"İstanbul'da hava nasıl?"</span>}]
+})</code></pre>
+    <p class="body-text">Arka planda bu çağrı, LangGraph'ın kalıcı çalışma zamanı üzerinde çalışır: model kararını verir, aracı çalıştırır, sonucu bağlama ekler ve gerektiği kadar tekrarlar — tıpkı ham tool-calling döngüsündeki gibi, ama sizin elle yazmanız gereken kısım LangChain tarafından soyutlanmış olur.</p>
+    <div class="callout">
+      <span class="mono">AgentExecutor</span> (v1.0 öncesinin eski ajan çalıştırıcısı) Aralık 2026'ya kadar bakım modunda; yeni projelerde <span class="mono">create_agent</span> tercih edilmeli.
+    </div>
+  </section>
+
+  <footer>
+    Kaynak ve güncel referans: <a href="https://python.langchain.com/docs/concepts/architecture/" target="_blank" rel="noopener">python.langchain.com — LangChain overview</a> · <a href="https://www.langchain.com/langchain" target="_blank" rel="noopener">langchain.com</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
