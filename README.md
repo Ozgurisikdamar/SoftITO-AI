@@ -62,6 +62,11 @@ Amaç yalnızca konu notları biriktirmek değil; kavramları kodla keşfetmek, 
 <td><a href="ML/README.md">ML laboratuvarı →</a></td>
 </tr>
 <tr>
+<td><strong>Computer Vision</strong></td>
+<td>Görüntü işleme, CNN, U-Net ile segmentasyon ve Mask R-CNN ile nesne tespiti/instance segmentation.</td>
+<td><a href="Computer%20Vision/README.md">Computer Vision →</a></td>
+</tr>
+<tr>
 <td><strong>SQL</strong></td>
 <td>SELECT, JOIN, CTE, window functions, indeksler, transaction, normalizasyon ve örnek projeler.</td>
 <td><a href="SQL/README.md">SQL öğrenme merkezi →</a></td>
@@ -70,6 +75,11 @@ Amaç yalnızca konu notları biriktirmek değil; kavramları kodla keşfetmek, 
 <td><strong>NLP</strong></td>
 <td>Metin normalizasyonu, tokenization, TF-IDF ve metin sınıflandırma.</td>
 <td><a href="NLP/README.md">NLP laboratuvarı →</a></td>
+</tr>
+<tr>
+<td><strong>LangChain</strong></td>
+<td>LCEL, tools/agents, LangGraph, RAG, evaluation, LangSmith ve production güvenliği.</td>
+<td><a href="Langchain/README.md">LangChain →</a></td>
 </tr>
 <tr>
 <td><strong>Big Data</strong></td>
@@ -116,20 +126,26 @@ Tablo verisini yükle, sorgula, temizle, özetle ve bulguları anlaşılır biç
 
 Veriyi keşfet, uygun baseline oluştur, veri sızıntısını önle ve modelleri doğru metriklerle karşılaştır.
 
-### 03 — AI / Deep Learning rotası
+### 03 — Computer Vision rotası
+**Python → ML → Deep Learning → Computer Vision**
+
+Görüntü işleme temellerinden CNN sınıflandırma, segmentasyon ve nesne tespitine ilerle.
+
+### 04 — AI / Deep Learning rotası
 **Python → ML → NLP → RNN → LSTM / GRU**
 
 Metin ve sıralı veri problemlerini temel temsillerden sinir ağı mimarilerine doğru incele.
 
-### 04 — Data Engineering rotası
+### 05 — Data Engineering rotası
 **SQL → ETL / ELT → Big Data → Spark**
 
 Veriyi güvenilir şekilde al, doğrula, dönüştür, katmanlara ayır ve analitik kullanıma hazırla.
 
-### 05 — AI Engineering / LLM Engineering rotası
-**Python → ML temelleri → NLP → Deep Learning → LLM temelleri → RAG → Fine-Tuning → Knowledge Distillation → Evaluation → Deployment**
+### 06 — AI / LLM Engineering rotası
+**Python → ML temelleri → NLP → LLM temelleri → LangChain → RAG → Fine-Tuning → Knowledge Distillation → Evaluation → Deployment**
 
 - **NLP:** metin işleme, tokenization ve klasik metin modelleri.
+- **LangChain:** prompt composition, runnable pipelines, tools, agents ve LangGraph.
 - **LLM / RAG:** retrieval pipeline, chunking, sparse+dense arama, hybrid retrieval, reranking, prompt/context engineering ve kaynaklı cevap üretimi.
 - **Fine-Tuning:** instruction dataset hazırlama, SFT, LoRA/QLoRA, adapter eğitimi ve inference.
 - **Production'a hazırlık:** değerlendirme, hata analizi, maliyet/latency optimizasyonu ve deployment konularını sonraki aşamada ele al.
@@ -194,8 +210,10 @@ SoftITo-AI/
 ├── EDA/          # Keşifçi veri analizi
 ├── Statistics/   # İstatistiksel analiz
 ├── ML/           # Klasik ML ve derin öğrenmeye giriş
+├── Computer Vision/ # Görüntü işleme, CNN, segmentasyon ve detection
 ├── SQL/          # SQL dersleri, örnekler ve alıştırmalar
 ├── NLP/          # Metin işleme ve sınıflandırma
+├── Langchain/    # LangChain, agents, LangGraph ve production LLM apps
 ├── Big Data/     # Hadoop Streaming ve Spark
 ├── ETL-ELT/      # Veri entegrasyonu ve dönüşüm
 ├── RNN/          # Recurrent Neural Networks
